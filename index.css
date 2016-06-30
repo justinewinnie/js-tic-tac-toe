@@ -1,3 +1,20 @@
 html {
-  
+
+}
+
+.square {
+    width:150px;
+    height:150px;
+    border-color: black;
+    border-style: solid;
+}
+
+.v {
+  border-left:1px solid #000;
+  border-right:1px solid #000;
+}
+
+.h {
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
 }
