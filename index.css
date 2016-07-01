@@ -8,19 +8,27 @@ html {
   margin-right: 30%;
 }
 
+.photos {
+  margin: 0 auto;
+  width: 330px;
+}
+
+#choose_cat {
+  display: inline;
+}
+
 #choose_cat img {
   width: 175px;
   height: 175px;
+}
+
+#choose_dog {
   display: inline;
-  float: left;
-  margin-left: 10%;
-  margin-bottom: 20px;
 }
 
 #choose_dog img {
   width: 145px;
   height: 145px;
-  display: inline;
 }
 
 .checkbox {

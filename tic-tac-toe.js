@@ -12,37 +12,9 @@ $(document).ready(function () {
 
   function TicTacToe() {
    this.current_player = 1
-   this.board = $('board')
   }
 
   var game = new TicTacToe()
-
-  TicTacToe.prototype.first_player = function (player_img) {
-    var player_img_choice = $(player_img).find('.image')
-    console.log(player_img_choice)
-    // display both cat and dog
-    // click either cat or dog
-    // choice assigns player no.
-
-    // if (game.current_player === 1) {
-    //   turn.addClass('cat')
-    //   turn.attr("src", "cat.png")
-    // } else {
-    //   turn.addClass('dog')
-    //   turn.attr("src", "dog.jpg")
-    //   game.current_player = 2
-    // }
-  }
-
-  // $(".player").click(function() {
-  //   game.first_player(this)
-  //   image.addClass('cat')
-  //   image.attr('src', 'cat.png')
-  //
-  //   image.addClass('dog')
-  //   image.attr('src', 'dog.png')
-  // })
-  // game.first_player(first_player)
 
   TicTacToe.prototype.square_free = function (checkbox) {
     var image = $(checkbox).find('.image')
@@ -76,9 +48,6 @@ $(document).ready(function () {
     }
   }
 
-  $('.checkbox').click(function() {
-    game.play(this)
-  })
 
   TicTacToe.prototype.win = function () {
     var cat_checkboxes = {
@@ -95,6 +64,7 @@ $(document).ready(function () {
 
     if( cat_checkboxes['#1'] && cat_checkboxes['#2'] && cat_checkboxes['#3'] ) {
       alert('kitties rule, puppies drool!')
+
     } else if ( cat_checkboxes['#1'] && cat_checkboxes['#4'] && cat_checkboxes['#7'] ) {
       alert('kitties rule, puppies drool!')
     } else if ( cat_checkboxes['#1'] && cat_checkboxes['#5'] && cat_checkboxes['#9'] ) {
@@ -140,18 +110,30 @@ $(document).ready(function () {
     } else if ( dog_checkboxes['#3'] && dog_checkboxes['#5'] && dog_checkboxes['#7'] ) {
       alert('WOOF WOOF WOOF!')
     }
+  }
 
+  TicTacToe.prototype.reset = function () {
+    game.find('checkbox').each(function() {
+      $(this).removeClass('image cat').removeClass('image dog')
+    })
   }
 
 
-  function reset(table) {
-    table.find('td').each(function() {
-      $(this).removeClass('circle').removeClass('cross');
-    });
-  }
-
-
-  TicTacToe.prototype.draw = {
+  TicTacToe.prototype.draw = function () {
 
   }
+  // script
+  $('#choose_cat').click(function() {
+    game.current_player = 1
+    console.log(game.current_player)
+  })
+
+  $('#choose_dog').click(function() {
+    game.current_player = 2
+    console.log(game.current_player)
+  })
+
+  $('.checkbox').click(function() {
+    game.play(this)
+  })
 })
