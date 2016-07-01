@@ -12,17 +12,27 @@ $(document).ready(function () {
 
   function TicTacToe() {
    this.current_player = 1
+   this.board = $('board')
   }
 
   var game = new TicTacToe()
 
-  TicTacToe.prototype.get_player_img = function (player) {
-    if(player == 1) {
-      return "cat"
-    } else {
-      return "dog"
-    }
-  }
+  // TicTacToe.prototype.first_player = function (player_img) {
+  //   // player autoset as 1/cat
+  //   //
+  //   if (game.current_player === 1) {
+  //     turn.addClass('cat')
+  //     turn.attr("src", "cat.png")
+  //   } else {
+  //     turn.addClass('dog')
+  //     turn.attr("src", "dog.jpg")
+  //     game.current_player = 2
+  //   }
+  // }
+  //
+  // $(".player").click(function() {
+  //   game.first_player(this)
+  // })
 
   TicTacToe.prototype.play = function (checkbox) {
     // if square hasClass cat or dog, do nothing
@@ -31,38 +41,69 @@ $(document).ready(function () {
     // var img = this.player.img
     // $( "#" ).addClass( "img" );
     var image = $(checkbox).find('.image')
-    console.log(image)
-    if(image.hasClass("cat") || image.hasClass("dog")) {
-      console.log("already played")
+
+    if(image.hasClass('cat') || image.hasClass('dog')) {
+      alert('choose an open square')
     } else {
-      console.log(game.current_player )
       if (game.current_player === 1) {
-        image.addClass("cat")
-        image.attr("src", "cat.png")
+        image.addClass('cat')
+        image.attr('src', 'cat.png')
         game.current_player = 2
       } else {
-        image.addClass("dog")
-        image.attr("src", "dog.jpg")
+        image.addClass('dog')
+        image.attr('src', 'dog.jpg')
         game.current_player = 1
       }
     }
+    game.win()
+
   }
 
-  $(".checkbox").click(function() {
+  $('.checkbox').click(function() {
     game.play(this)
   })
 
-  // TicTacToe.prototype.switch_players(player) = {
-  //   if(player == 1) {
-  //     return player = 2
-  //   } else {
-  //     return player = 1
-  //   }
-  // }
+  TicTacToe.prototype.win = function () {
+    var cat_checkboxes = {
+      '#1': ('image cat' === $('.checkbox').find( '#1' )[0].className),
+      '#2': ('image cat' === $('.checkbox').find( '#2' )[0].className),
+      '#3': ('image cat' === $('.checkbox').find( '#3' )[0].className),
+      '#4': ('image cat' === $('.checkbox').find( '#4' )[0].className),
+      '#5': ('image cat' === $('.checkbox').find( '#5' )[0].className),
+      '#6': ('image cat' === $('.checkbox').find( '#6' )[0].className),
+      '#7': ('image cat' === $('.checkbox').find( '#7' )[0].className),
+      '#8': ('image cat' === $('.checkbox').find( '#8' )[0].className),
+      '#9': ('image cat' === $('.checkbox').find( '#9' )[0].className)
+    }
+    // var images = $('.checkbox').find( '#1' )[0].className
+    // console.log(cat_checkboxes['#1'])
 
-  TicTacToe.prototype.win = {
+      if(cat_checkboxes['#1'] && cat_checkboxes['#2'] && cat_checkboxes['#3'] ) {
+        console.log('kitties rule, puppies drool!')
+      }
 
+    //   if(board.find('#1').hasClass(pattern) && board.find('#2').hasClass(pattern) && board.find('#3').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#1').hasClass(pattern) && board.find('#4').hasClass(pattern) && board.find('#7').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#1').hasClass(pattern) && board.find('#5').hasClass(pattern) && board.find('#9').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#4').hasClass(pattern) && board.find('#5').hasClass(pattern) && board.find('#6').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#7').hasClass(pattern) && board.find('#8').hasClass(pattern) && board.find('#9').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#2').hasClass(pattern) && board.find('#5').hasClass(pattern) && board.find('#8').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#3').hasClass(pattern) && board.find('#6').hasClass(pattern) && board.find('#9').hasClass(pattern)) {
+    //     won = 1;
+    //   } else if (board.find('#3').hasClass(pattern) && board.find('#5').hasClass(pattern) && board.find('#7').hasClass(pattern)) {
+    //     won = 1;
+    //   }
+    //   return won;
+    // }
   }
+
+
 
   TicTacToe.prototype.draw = {
 
