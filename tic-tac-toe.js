@@ -1,13 +1,4 @@
-// a turn:
-// view the board
-// have different classes for available/unavailable board spots?
-// identify whose turn it is ---> whether to mark with x or o
-// listen for event: click a square
 
-// check if the event triggered three in a row ---> game ends, inform winner of win, inform loser of loss :(
-// if all squares are checked and no three in a row ---> game ends in a draw
-
-// if game not over, switch to other player
 $(document).ready(function () {
 
   function TicTacToe() {
@@ -53,7 +44,7 @@ $(document).ready(function () {
   }
 
   TicTacToe.prototype.win = function () {
-    var cat_checkboxes = {
+    var cat_box = {
       '#1': ('image cat' === $('.checkbox').find( '#1' )[0].className),
       '#2': ('image cat' === $('.checkbox').find( '#2' )[0].className),
       '#3': ('image cat' === $('.checkbox').find( '#3' )[0].className),
@@ -65,27 +56,25 @@ $(document).ready(function () {
       '#9': ('image cat' === $('.checkbox').find( '#9' )[0].className)
     }
 
-    if( cat_checkboxes['#1'] && cat_checkboxes['#2'] && cat_checkboxes['#3'] ) {
+    if( cat_box['#1'] && cat_box['#2'] && cat_box['#3'] ) {
       alert('kitties rule, puppies drool!')
-      game.reset()
-
-    } else if ( cat_checkboxes['#1'] && cat_checkboxes['#4'] && cat_checkboxes['#7'] ) {
+    } else if ( cat_box['#1'] && cat_box['#4'] && cat_box['#7'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#1'] && cat_checkboxes['#5'] && cat_checkboxes['#9'] ) {
+    } else if ( cat_box['#1'] && cat_box['#5'] && cat_box['#9'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#4'] && cat_checkboxes['#5'] && cat_checkboxes['#6'] ) {
+    } else if ( cat_box['#4'] && cat_box['#5'] && cat_box['#6'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#7'] && cat_checkboxes['#8'] && cat_checkboxes['#9'] ) {
+    } else if ( cat_box['#7'] && cat_box['#8'] && cat_box['#9'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#2'] && cat_checkboxes['#5'] && cat_checkboxes['#8'] ) {
+    } else if ( cat_box['#2'] && cat_box['#5'] && cat_box['#8'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#3'] && cat_checkboxes['#6'] && cat_checkboxes['#9'] ) {
+    } else if ( cat_box['#3'] && cat_box['#6'] && cat_box['#9'] ) {
       alert('kitties rule, puppies drool!')
-    } else if ( cat_checkboxes['#3'] && cat_checkboxes['#5'] && cat_checkboxes['#7'] ) {
+    } else if ( cat_box['#3'] && cat_box['#5'] && cat_box['#7'] ) {
       alert('kitties rule, puppies drool!')
     }
 
-    var dog_checkboxes = {
+    var dog_box = {
       '#1': ('image dog' === $('.checkbox').find( '#1' )[0].className),
       '#2': ('image dog' === $('.checkbox').find( '#2' )[0].className),
       '#3': ('image dog' === $('.checkbox').find( '#3' )[0].className),
@@ -97,21 +86,21 @@ $(document).ready(function () {
       '#9': ('image dog' === $('.checkbox').find( '#9' )[0].className)
     }
 
-    if( dog_checkboxes['#1'] && dog_checkboxes['#2'] && dog_checkboxes['#3'] ) {
+    if( dog_box['#1'] && dog_box['#2'] && dog_box['#3'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#1'] && dog_checkboxes['#4'] && dog_checkboxes['#7'] ) {
+    } else if ( dog_box['#1'] && dog_box['#4'] && dog_box['#7'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#1'] && dog_checkboxes['#5'] && dog_checkboxes['#9'] ) {
+    } else if ( dog_box['#1'] && dog_box['#5'] && dog_box['#9'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#4'] && dog_checkboxes['#5'] && dog_checkboxes['#6'] ) {
+    } else if ( dog_box['#4'] && dog_box['#5'] && dog_box['#6'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#7'] && dog_checkboxes['#8'] && dog_checkboxes['#9'] ) {
+    } else if ( dog_box['#7'] && dog_box['#8'] && dog_box['#9'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#2'] && dog_checkboxes['#5'] && dog_checkboxes['#8'] ) {
+    } else if ( dog_box['#2'] && dog_box['#5'] && dog_box['#8'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#3'] && dog_checkboxes['#6'] && dog_checkboxes['#9'] ) {
+    } else if ( dog_box['#3'] && dog_box['#6'] && dog_box['#9'] ) {
       alert('WOOF WOOF WOOF!')
-    } else if ( dog_checkboxes['#3'] && dog_checkboxes['#5'] && dog_checkboxes['#7'] ) {
+    } else if ( dog_box['#3'] && dog_box['#5'] && dog_box['#7'] ) {
       alert('WOOF WOOF WOOF!')
     }
   }

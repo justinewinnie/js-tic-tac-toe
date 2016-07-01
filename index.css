@@ -1,5 +1,10 @@
 html {
+  font-family: 'Permanent Marker', cursive;
+}
 
+h1 {
+  text-align: center;
+  font-size: 60px;
 }
 
 .board table {
@@ -10,7 +15,8 @@ html {
 
 .photos {
   margin: 0 auto;
-  width: 330px;
+  width: 345px;
+  text-align: center;
 }
 
 #choose_cat {
@@ -36,6 +42,11 @@ html {
   height:150px;
   border-color: black;
   border-style: solid;
+  border-radius: 4px;
+}
+
+.checkbox:hover {
+  background-color: #ffdc73;
 }
 
 .checkbox .cat {
