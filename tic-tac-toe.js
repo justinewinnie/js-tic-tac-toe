@@ -12,6 +12,7 @@ $(document).ready(function () {
 
   function TicTacToe() {
    this.current_player = 1
+   this.turns = 0
   }
 
   var game = new TicTacToe()
@@ -41,13 +42,15 @@ $(document).ready(function () {
         image.addClass('dog')
         image.attr('src', 'dog.jpg')
       }
+      game.turns += 1
+      console.log(game.turns)
       game.win()
+      game.draw()
       game.switch_player()
     } else {
       alert("Please choose a free square.")
     }
   }
-
 
   TicTacToe.prototype.win = function () {
     var cat_checkboxes = {
@@ -64,6 +67,7 @@ $(document).ready(function () {
 
     if( cat_checkboxes['#1'] && cat_checkboxes['#2'] && cat_checkboxes['#3'] ) {
       alert('kitties rule, puppies drool!')
+      game.reset()
 
     } else if ( cat_checkboxes['#1'] && cat_checkboxes['#4'] && cat_checkboxes['#7'] ) {
       alert('kitties rule, puppies drool!')
@@ -112,28 +116,28 @@ $(document).ready(function () {
     }
   }
 
-  TicTacToe.prototype.reset = function () {
-    game.find('checkbox').each(function() {
-      $(this).removeClass('image cat').removeClass('image dog')
-    })
-  }
-
+  // TicTacToe.prototype.reset = function () {
+  //   var cat = $('checkbox').find('#1')
+  //   cat.removeClass('image cat')
+  //     console.log("reset")
+  // }
 
   TicTacToe.prototype.draw = function () {
-
+    if ((game.turns === 9) && !game.win()) {
+      alert("It's a draw.")
+    }
   }
-  // script
+
   $('#choose_cat').click(function() {
     game.current_player = 1
-    console.log(game.current_player)
   })
 
   $('#choose_dog').click(function() {
     game.current_player = 2
-    console.log(game.current_player)
   })
 
   $('.checkbox').click(function() {
     game.play(this)
   })
+
 })
