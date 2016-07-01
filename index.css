@@ -2,6 +2,28 @@ html {
 
 }
 
+.board table {
+  display: block;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+#choose_cat img {
+  width: 175px;
+  height: 175px;
+  display: inline;
+  float: left;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+#choose_dog img {
+  width: 145px;
+  height: 145px;
+  display: inline;
+  margin-bottom: 20px;
+}
+
 .checkbox {
   width:150px;
   height:150px;
